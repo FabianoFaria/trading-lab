@@ -1,0 +1,8 @@
+services:
+  trading-lab:
+    build: .
+    container_name: trading-lab
+    volumes:
+      - ./data:/app/data:ro
+      - ./reports:/app/reports
+    command: ["python", "-m", "trading_lab.main", "--csv", "data/sample_prices.csv", "--output", "reports/backtest_results.csv"]
